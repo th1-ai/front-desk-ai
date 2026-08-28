@@ -1,0 +1,6 @@
+[
+  {"date": "2026-09-14", "room_type_id": "classic", "price": 194, "currency": "EUR",
+   "min_los": 1, "available": 6},
+  {"date": "2026-10-02", "room_type_id": "aurora-suite", "price": 468, "currency": "EUR",
+   "min_los": 1, "available": 1}
+]

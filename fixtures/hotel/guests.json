@@ -1,0 +1,7 @@
+[
+  {"id": "g-01", "first_name": "Marta", "last_name": "Nowak",
+   "email": "marta.nowak@example.com", "phone": "+34 600 000 001", "country": "ES"},
+  {"id": "g-02", "first_name": "Julien", "last_name": "Marchand",
+   "email": "julien.marchand@example.com", "phone": "+33 6 00 00 00 02", "country": "FR",
+   "language": "fr"}
+]

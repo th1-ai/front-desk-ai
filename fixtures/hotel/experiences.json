@@ -1,0 +1,50 @@
+[
+  {
+    "slug": "wine-tasting",
+    "title": "Cellar Wine Tasting",
+    "schedule_label": "Fridays 18:00",
+    "next_date": "2026-09-18",
+    "start_time": "18:00",
+    "price": 55,
+    "capacity": 12,
+    "booked": 9,
+    "venue": "The Cellar",
+    "host": "our resident sommelier"
+  },
+  {
+    "slug": "sunrise-yoga",
+    "title": "Sunrise Yoga on the Terrace",
+    "schedule_label": "Tuesdays and Saturdays 07:00",
+    "next_date": "2026-09-15",
+    "start_time": "07:00",
+    "price": 20,
+    "capacity": 15,
+    "booked": 4,
+    "venue": "Rooftop Terrace",
+    "host": "a visiting yoga instructor"
+  },
+  {
+    "slug": "afterwork-social",
+    "title": "Aurora After-Work Social",
+    "schedule_label": "First Thursday of the month, 18:30",
+    "next_date": "2026-09-03",
+    "start_time": "18:30",
+    "price": 25,
+    "capacity": 40,
+    "booked": 40,
+    "venue": "The Terrace Bar",
+    "host": "the Aurora events team"
+  },
+  {
+    "slug": "rooftop-party",
+    "title": "Rooftop Summer Party",
+    "schedule_label": "Saturdays in season, 21:00",
+    "next_date": "2026-09-26",
+    "start_time": "21:00",
+    "price": 35,
+    "capacity": 80,
+    "booked": 30,
+    "venue": "Rooftop",
+    "host": "the Aurora events team"
+  }
+]

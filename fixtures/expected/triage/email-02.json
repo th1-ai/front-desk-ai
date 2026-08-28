@@ -1,0 +1,9 @@
+{
+  "intent": "room_booking", "lane": "front_desk", "language": "en", "confidence": 0.93,
+  "booking": {"room_type": "classic", "checkin": "2026-09-08", "checkout": "2026-09-10",
+             "pax": 2, "party_size": null, "date": null, "time": null, "treatment": null,
+             "session_slug": null, "occasion": null, "reservation_ref": null,
+             "dietary_notes": null, "special_requests": null},
+  "guest_fact": null, "missing_info": [], "escalation": null,
+  "reason": "Guest asks to book a Classic Room for two specific nights."
+}

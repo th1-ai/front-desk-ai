@@ -1,0 +1,9 @@
+{
+  "intent": "table_booking", "lane": "front_desk", "language": "en", "confidence": 0.92,
+  "booking": {"room_type": null, "checkin": null, "checkout": null, "pax": null,
+             "party_size": 4, "date": "2026-09-14", "time": "19:30", "treatment": null,
+             "session_slug": null, "occasion": null, "reservation_ref": null,
+             "dietary_notes": null, "special_requests": null},
+  "guest_fact": null, "missing_info": [], "escalation": null,
+  "reason": "Guest asks for a table for four on a specific evening."
+}

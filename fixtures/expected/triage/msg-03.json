@@ -1,0 +1,7 @@
+{
+  "intent": "other", "lane": "front_desk", "language": "en", "confidence": 0.87,
+  "booking": null, "guest_fact": null, "missing_info": [],
+  "escalation": {"category": "payment",
+                "reason": "Guest reports a duplicate card charge and asks for a refund."},
+  "reason": "Guest reports being charged twice and asks for a refund today."
+}

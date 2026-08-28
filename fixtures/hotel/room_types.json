@@ -1,0 +1,6 @@
+[
+  {"id": "classic", "name": "Classic Room", "max_occupancy": 2, "count": 20, "rank": 1},
+  {"id": "river-view", "name": "River View Room", "max_occupancy": 2, "count": 10, "rank": 2},
+  {"id": "deluxe-suite", "name": "Deluxe Suite", "max_occupancy": 3, "count": 8, "rank": 3},
+  {"id": "aurora-suite", "name": "Aurora Suite", "max_occupancy": 4, "count": 4, "rank": 4}
+]

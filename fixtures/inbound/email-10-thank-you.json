@@ -1,0 +1,11 @@
+{
+  "id": "email-10",
+  "thread_id": "thread-10",
+  "from": "alex.carter@example.com",
+  "from_name": "Alex Carter",
+  "to": ["reservations@example.com"],
+  "subject": "Thank you!",
+  "body": "Just wanted to say thank you for a lovely stay in August, we will be back.",
+  "received_at": "2026-08-22T17:00:00+00:00",
+  "folder": "INBOX"
+}

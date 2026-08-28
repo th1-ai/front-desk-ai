@@ -1,0 +1,11 @@
+{
+  "id": "email-06",
+  "thread_id": "thread-06",
+  "from": "marta.nowak@example.com",
+  "from_name": "Marta Nowak",
+  "to": ["reservations@example.com"],
+  "subject": "Allergy note for our stay, ref RES-7001",
+  "body": "Hello, my husband has a severe nut allergy. Could you please pass this to the kitchen ahead of our stay? Our booking reference is RES-7001.",
+  "received_at": "2026-08-21T09:00:00+00:00",
+  "folder": "INBOX"
+}

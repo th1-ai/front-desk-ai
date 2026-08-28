@@ -1,0 +1,145 @@
+# ---------------------------------------------------------------------------
+# agent.yaml - Front Desk AI's own knobs. `make setup` copies this to
+# config/agent.yaml; edit that copy, this example stays as a clean reference.
+#
+# Front Desk AI reads every inbound guest message (email and WhatsApp),
+# classifies it, books rooms/tables/spa treatments directly, hands bookable
+# experiences to the Specialist lane, and sends confirmations + reminders the
+# instant a booking lands. Every send and every booking write still goes
+# through mode: shadow / review.require_approval_for in config/hotel.yaml -
+# nothing here loosens that. See docs/safety.md.
+# ---------------------------------------------------------------------------
+
+# Below this, an item always needs a human instead of being drafted on trust.
+# The roster promise is "~85% intent-classification accuracy live" - this is
+# the floor under that number. Raise it if you want to see more borderline
+# cases; lower it once you have watched the classifier for a while.
+confidence_threshold: 0.80
+
+# Categories the triage step may return in its `escalation` block. Anything
+# outside this enum fails schema validation and the item queues as
+# needs_human rather than guessing at a category. See docs/safety.md for what
+# always trips each one.
+escalation_categories:
+  - refund
+  - complaint
+  - payment
+  - safety
+  - policy_exception
+  - missing_info
+  - vip
+
+# Front Desk AI never auto-sends and never auto-books - see docs/how-it-works.md
+# design decision 1. This documents the fact for docs/benefits.md and
+# tools/report.py; the real gate is mode + review.require_approval_for in
+# config/hotel.yaml, enforced by core/review.py.
+autonomy: draft
+
+# --- Rooms -----------------------------------------------------------------
+# Rates are computed, never asked of the model. nightly_rate =
+# round(base_rate x season[month] x weekend_multiplier / 5) x 5 - see
+# tools/pricing.py. Room type ids here must match fixtures/hotel/room_types.json.
+rooms:
+  room_types:
+    classic:       { name: "Classic Room",      base_rate: 180, max_occupancy: 2 }
+    river-view:    { name: "River View Room",   base_rate: 220, max_occupancy: 2 }
+    deluxe-suite:  { name: "Deluxe Suite",       base_rate: 300, max_occupancy: 3 }
+    aurora-suite:  { name: "Aurora Suite",       base_rate: 520, max_occupancy: 4 }
+  # one multiplier per month, January first.
+  season_multiplier: [0.85, 0.85, 0.90, 1.00, 1.10, 1.25, 1.35, 1.35, 1.15, 1.00, 0.90, 0.95]
+  weekend_multiplier: 1.08     # Friday and Saturday nights
+  weekend_days: [4, 5]         # Monday=0 ... Sunday=6
+  large_group_rooms: 6         # 6+ rooms in one request always needs a human
+  large_group_pax: 15          # 15+ guests in one request always needs a human
+
+# --- Restaurant --------------------------------------------------------------
+restaurant:
+  name: "Aurora Kitchen"
+  closed_weekdays: [0]         # Monday=0 ... Sunday=6
+  default_time: "19:30"
+  large_party_size: 10         # 10+ covers always needs a human
+
+# --- Spa ---------------------------------------------------------------------
+# `match` is the fuzzy-match order tools/pricing.py tries: exact title, then a
+# substring, then the keyword hints. First hint match wins.
+# `price` is a plain number in `hotel.currency` (see hotel.yaml) - it is
+# never EUR-only, the guest-facing amount is always formatted per the
+# property's own currency. (`price_eur` still works if your config predates
+# this rename, but tools/pricing.py will print a one-time note to switch.)
+spa:
+  name: "Aurora Spa"
+  menu:
+    - id: signature-massage
+      title: "Signature Massage 60"
+      duration_min: 60
+      price: 95
+      party_size: 1
+      hints: ["massage"]
+    - id: hot-stone
+      title: "Hot Stone Therapy"
+      duration_min: 75
+      price: 125
+      party_size: 1
+      hints: ["stone"]
+    - id: radiance-facial
+      title: "Radiance Facial"
+      duration_min: 45
+      price: 80
+      party_size: 1
+      hints: ["facial"]
+    - id: couples-ritual
+      title: "Aurora Couples Ritual"
+      duration_min: 90
+      price: 260          # flat price for the pair, not per person
+      party_size: 2
+      flat_price: true
+      hints: ["couple", "ritual"]
+    - id: garden-reflexology
+      title: "Garden Reflexology"
+      duration_min: 30
+      price: 55
+      party_size: 1
+      hints: ["reflexology", "foot"]
+
+# --- Sub-agents folded into this repo ---------------------------------------
+# Front Desk AI fully handles rooms, tables and spa on its own. Experiences
+# are the one thing it cannot book without the Specialist lane, so they stay
+# off until you turn this on - see docs/sub-agents.md and
+# workflows/20-specialist-booking.md.
+subagents:
+  specialist_booking:
+    enabled: false
+    # session catalogue lives in fixtures/hotel/experiences.json and is
+    # seeded into the experience_sessions table on first run - see
+    # tools/store_ext.py:seed_experience_sessions().
+  whatsapp:
+    enabled: true              # nothing to toggle beyond having systems.messaging configured
+  coach:
+    enabled: true               # analysis only - never touches a guest, safe to leave on
+
+# --- Confirmations & reminders (the Greeter, Loop B) ------------------------
+confirmations:
+  hold_for_review_over_eur: 1500    # a booking worth more than this awaits a human's send
+  room_reminder: "t-1d-17:00"        # one reminder, the evening before arrival
+  restaurant_reminder_enabled: false # most restaurant systems send their own SMS reminder
+  ancillary_reminder_offsets: ["t-24h", "t-morning", "t-2h"]
+  languages: [en, fr, es, pt]        # tools/confirmations.py:TEMPLATES - falls back to en
+
+# --- Schedule ----------------------------------------------------------------
+# What `tools/run.py --watch` polls on, and what `make schedule` prints by
+# default. See scheduler/ for cron/launchd/systemd.
+schedule:
+  # Each entry names a real command in this repo (never `tools/review.py digest`
+  # or other commands that do not exist) and the cadence Loop A/B are actually
+  # documented to run at. `make schedule ARGS="--all"` prints one ready-to-paste
+  # snippet per entry below, with the exact command and cadence already filled
+  # in - that is what scheduler/crontab.example and README section 9 show.
+  triage:
+    command: "tools/run.py --once"
+    cadence: "*/5 * * * *"        # every 5 minutes - guest mail is time-sensitive
+  confirmations:
+    command: "tools/run.py --once --confirmations"
+    cadence: "*/15 * * * *"       # every 15 minutes
+  coach:
+    command: "tools/coach.py analyze"
+    cadence: "0 3 * * 1"          # Monday 03:00 - see workflows/85-coach-weekly.md

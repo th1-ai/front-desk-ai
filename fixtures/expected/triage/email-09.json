@@ -1,0 +1,11 @@
+{
+  "intent": "modification", "lane": "front_desk", "language": "en", "confidence": 0.85,
+  "booking": {"room_type": null, "checkin": null, "checkout": null, "pax": null,
+             "party_size": null, "date": null, "time": null, "treatment": null,
+             "session_slug": null, "occasion": null, "reservation_ref": "RES-7002",
+             "dietary_notes": null, "special_requests": null},
+  "guest_fact": null,
+  "missing_info": ["confirm the room is available for one extra night before promising it"],
+  "escalation": null,
+  "reason": "Guest asks to extend an existing booking by one night."
+}

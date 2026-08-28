@@ -1,0 +1,26 @@
+[
+  {
+    "id": "msg-01",
+    "chat_id": "chat-01",
+    "from_number": "+1 555 0101",
+    "from_name": "Ola Berg",
+    "text": "Hi! Is breakfast included in our rate?",
+    "sent_at": "2026-08-23T07:30:00+00:00"
+  },
+  {
+    "id": "msg-02",
+    "chat_id": "chat-02",
+    "from_number": "+1 555 0102",
+    "from_name": "Diego Fuentes",
+    "text": "Do you have a River View Room free for 12 to 15 September, 2 adults?",
+    "sent_at": "2026-08-23T09:00:00+00:00"
+  },
+  {
+    "id": "msg-03",
+    "chat_id": "chat-03",
+    "from_number": "+1 555 0103",
+    "from_name": "Ingrid Halvorsen",
+    "text": "You charged my card twice for my stay, please refund one of them today.",
+    "sent_at": "2026-08-23T10:15:00+00:00"
+  }
+]

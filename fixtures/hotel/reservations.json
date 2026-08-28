@@ -1,0 +1,61 @@
+[
+  {
+    "id": "res-ext-01",
+    "external_ref": "RES-7001",
+    "status": "confirmed",
+    "check_in": "2026-09-14",
+    "check_out": "2026-09-16",
+    "room_type_id": "classic",
+    "room_type_name": "Classic Room",
+    "adults": 2,
+    "children": 0,
+    "source": "booking_com",
+    "total": 420,
+    "balance": 0,
+    "currency": "EUR",
+    "guest": {
+      "id": "g-01", "first_name": "Marta", "last_name": "Nowak",
+      "email": "marta.nowak@example.com", "phone": "+34 600 000 001",
+      "country": "ES", "language": ""
+    }
+  },
+  {
+    "id": "res-ext-02",
+    "external_ref": "RES-7002",
+    "status": "confirmed",
+    "check_in": "2026-10-02",
+    "check_out": "2026-10-06",
+    "room_type_id": "aurora-suite",
+    "room_type_name": "Aurora Suite",
+    "adults": 2,
+    "children": 1,
+    "source": "direct_widget",
+    "total": 1800,
+    "balance": 900,
+    "currency": "EUR",
+    "guest": {
+      "id": "g-02", "first_name": "Julien", "last_name": "Marchand",
+      "email": "julien.marchand@example.com", "phone": "+33 6 00 00 00 02",
+      "country": "FR", "language": "fr"
+    }
+  },
+  {
+    "id": "res-ext-03",
+    "external_ref": "RES-7003",
+    "status": "confirmed",
+    "check_in": "2026-08-01",
+    "check_out": "2026-08-03",
+    "room_type_id": "river-view",
+    "room_type_name": "River View Room",
+    "adults": 2,
+    "children": 0,
+    "source": "expedia",
+    "total": 480,
+    "balance": 0,
+    "currency": "EUR",
+    "guest": {
+      "id": "g-03", "first_name": "Alex", "last_name": "Carter",
+      "email": "alex.carter@example.com", "phone": "", "country": "GB", "language": ""
+    }
+  }
+]

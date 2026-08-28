@@ -1,0 +1,5 @@
+{
+  "intent": "question", "lane": "front_desk", "language": "en", "confidence": 0.95,
+  "booking": null, "guest_fact": null, "missing_info": [], "escalation": null,
+  "reason": "Guest asks what time they can check in."
+}

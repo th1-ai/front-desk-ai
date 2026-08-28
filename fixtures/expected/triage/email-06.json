@@ -1,0 +1,8 @@
+{
+  "intent": "guest_fact", "lane": "front_desk", "language": "en", "confidence": 0.96,
+  "booking": null,
+  "guest_fact": {"note": "Husband has a severe nut allergy", "department": "fnb",
+                "reservation_ref": "RES-7001"},
+  "missing_info": [], "escalation": null,
+  "reason": "Guest reports a food allergy against an existing booking."
+}

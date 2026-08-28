@@ -1,0 +1,9 @@
+{
+  "intent": "experience_inquiry", "lane": "specialist", "language": "en", "confidence": 0.91,
+  "booking": {"room_type": null, "checkin": null, "checkout": null, "pax": null,
+             "party_size": 2, "date": null, "time": null, "treatment": null,
+             "session_slug": "wine-tasting", "occasion": null, "reservation_ref": null,
+             "dietary_notes": null, "special_requests": null},
+  "guest_fact": null, "missing_info": [], "escalation": null,
+  "reason": "Guest asks to book two spots at the Friday wine tasting."
+}

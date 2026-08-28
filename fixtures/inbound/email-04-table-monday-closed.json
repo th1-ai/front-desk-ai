@@ -1,0 +1,11 @@
+{
+  "id": "email-04",
+  "thread_id": "thread-04",
+  "from": "noah.becker@example.com",
+  "from_name": "Noah Becker",
+  "to": ["reservations@example.com"],
+  "subject": "Table for 4 on 14 September",
+  "body": "Could we get a table for 4 at Aurora Kitchen on 14 September, around 19:30?",
+  "received_at": "2026-08-20T11:20:00+00:00",
+  "folder": "INBOX"
+}

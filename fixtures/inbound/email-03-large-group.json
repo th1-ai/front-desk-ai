@@ -1,0 +1,11 @@
+{
+  "id": "email-03",
+  "thread_id": "thread-03",
+  "from": "family.reunion@example.com",
+  "from_name": "Deniz Aydin",
+  "to": ["reservations@example.com"],
+  "subject": "Family reunion, 20 guests, late September",
+  "body": "Hi there, we are planning a family reunion for 20 guests in late September, roughly the 21st for three nights. Can you help us book rooms?",
+  "received_at": "2026-08-20T10:40:00+00:00",
+  "folder": "INBOX"
+}

@@ -1,0 +1,5 @@
+{
+  "intent": "thank_you", "lane": "front_desk", "language": "en", "confidence": 0.97,
+  "booking": null, "guest_fact": null, "missing_info": [], "escalation": null,
+  "reason": "Guest sends a thank-you note after a past stay."
+}

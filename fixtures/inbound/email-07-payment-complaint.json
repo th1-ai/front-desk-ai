@@ -1,0 +1,11 @@
+{
+  "id": "email-07",
+  "thread_id": "thread-07",
+  "from": "j.marchand@example.com",
+  "from_name": "Julien Marchand",
+  "to": ["reservations@example.com"],
+  "subject": "Charged twice on my card",
+  "body": "I just noticed two identical charges from the hotel on my card statement this week for booking RES-7002. Can someone look into this urgently?",
+  "received_at": "2026-08-21T13:30:00+00:00",
+  "folder": "INBOX"
+}

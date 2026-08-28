@@ -1,0 +1,11 @@
+{
+  "id": "email-09",
+  "thread_id": "thread-09",
+  "from": "julien.marchand@example.com",
+  "from_name": "Julien Marchand",
+  "to": ["reservations@example.com"],
+  "subject": "Extending our stay - ref RES-7002",
+  "body": "Could we push our check-out back by one extra night? Our reference is RES-7002. Let me know if that is possible.",
+  "received_at": "2026-08-22T08:45:00+00:00",
+  "folder": "INBOX"
+}

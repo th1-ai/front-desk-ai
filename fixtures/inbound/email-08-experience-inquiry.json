@@ -1,0 +1,11 @@
+{
+  "id": "email-08",
+  "thread_id": "thread-08",
+  "from": "wine.fan@example.com",
+  "from_name": "Robin Voss",
+  "to": ["reservations@example.com"],
+  "subject": "Wine tasting this Friday?",
+  "body": "Hi, I saw you run a wine tasting on Fridays. Could we book two spots for this Friday evening?",
+  "received_at": "2026-08-21T15:10:00+00:00",
+  "folder": "INBOX"
+}

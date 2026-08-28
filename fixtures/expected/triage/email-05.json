@@ -1,0 +1,9 @@
+{
+  "intent": "spa_booking", "lane": "front_desk", "language": "en", "confidence": 0.94,
+  "booking": {"room_type": null, "checkin": null, "checkout": null, "pax": null,
+             "party_size": 1, "date": "2026-09-10", "time": "15:00",
+             "treatment": "Signature Massage", "session_slug": null, "occasion": null,
+             "reservation_ref": null, "dietary_notes": null, "special_requests": null},
+  "guest_fact": null, "missing_info": [], "escalation": null,
+  "reason": "Guest asks to book a massage for one person at a specific time."
+}
